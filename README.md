@@ -78,7 +78,7 @@ WHERE sale_date = '2022-11-05';
 ```
 
 2. **-- retrieve all trasaction where the category is Clothing and the quantity sold is more than 4 in nov 2022:
-```
+```sql
 SELECT * FROM retail_sales
  WHERE category = 'Clothing' 
 and 
@@ -88,7 +88,7 @@ quantity >= 4
 ```
 
 3. **--sql quary to calculate the total sales for each category:
-```
+```sql
 SELECT category, 
 SUM(total_sale) as net_sale,
 COUNT(*) as total_order
@@ -98,27 +98,27 @@ GROUP BY 1
 
 
 4. **--find the avg age of customer who purchased item from Beauty category:
-```
+```sql
 select Round(AVG(age),2) as avg_age 
 from retail_sales
 where category = 'Beauty'
 ```
 
 5. **--find the trasaction where the total_sale is greater than 1000.:
-```
+```sql
 select * from retail_sales
 where total_sale >1000;
 ```
 
 6. **-- find the total number of transaction (transaction_id) made by each gender and each category:
-```
+```sql
 select category, gender,
 count(*) as total_trans
 from retail_sales
 group by category, gender
 ```
 7. **--calculate the avaerage sale for each month Find out best selling month to each year:
-```
+```sql
 select 
 	EXTRACT(YEAR FROM sale_date) as year,
 	EXTRACT(MONTH FROM sale_date) as month,
@@ -130,7 +130,7 @@ GROUP BY 1, 2
 ORDER BY 1, 3 DESC
 ```
 8. **--find the top 5 customer based on the highest total sales:
-```
+```sql
 select customer_id,
 sum(total_sale) as total_sales
 from retail_sales 
@@ -140,7 +140,7 @@ limit 5
 ```
 
 9. **-- find the number of unique customer who purchase item from each category:
-```
+```sql
 select
 	category,
 	count(distinct customer_id) as cst_unique
@@ -150,7 +150,7 @@ group by category
 
 
 10. **-- create each shift and number and number of orders(morning, Evening, Afternoon):
-```
+```sql
 with hourly_sale
 as
 (
@@ -206,6 +206,7 @@ For more content on SQL, data analysis, and other data-related topics, make sure
 - **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
 
 Thank you for your support, and I look forward to connecting with you!
+
 
 
 
