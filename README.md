@@ -98,7 +98,7 @@ GROUP BY 1
 
 
 6. **--find the avg age of customer who purchased item from Beauty category:
-   ```
+```
 select Round(AVG(age),2) as avg_age 
 from retail_sales
 where category = 'Beauty'
@@ -206,6 +206,7 @@ For more content on SQL, data analysis, and other data-related topics, make sure
 - **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
 
 Thank you for your support, and I look forward to connecting with you!
+
 
 
 
