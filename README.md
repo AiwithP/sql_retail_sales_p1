@@ -87,35 +87,38 @@ and
 quantity >= 4 
 ```
 
-4. **--sql quary to calculate the total sales for each category
+4. **--sql quary to calculate the total sales for each category:
+```
 SELECT category, 
 SUM(total_sale) as net_sale,
 COUNT(*) as total_order
 from retail_sales
 GROUP BY 1
+```
 
 
-
-5. **--find the avg age of customer who purchased item from Beauty category
+6. **--find the avg age of customer who purchased item from Beauty category:
+   ```
 select Round(AVG(age),2) as avg_age 
 from retail_sales
 where category = 'Beauty'
+```
 
-
-6. **--find the trasaction where the total_sale is greater than 1000.
+8. **--find the trasaction where the total_sale is greater than 1000.:
+```
 select * from retail_sales
 where total_sale >1000;
+```
 
-
-
-7. **-- find the total number of transaction (transaction_id) made by each gender and each category
+9. **-- find the total number of transaction (transaction_id) made by each gender and each category:
+```
 select category, gender,
 count(*) as total_trans
 from retail_sales
 group by category, gender
-
-8. **--calculate the avaerage sale for each month Find out best selling month to each year
-
+```
+10. **--calculate the avaerage sale for each month Find out best selling month to each year:
+```
 select 
 	EXTRACT(YEAR FROM sale_date) as year,
 	EXTRACT(MONTH FROM sale_date) as month,
@@ -125,26 +128,29 @@ select
 FROM retail_sales
 GROUP BY 1, 2
 ORDER BY 1, 3 DESC
-
-8. **--find the top 5 customer based on the highest total sales
+```
+8. **--find the top 5 customer based on the highest total sales:
+```
 select customer_id,
 sum(total_sale) as total_sales
 from retail_sales 
 group by 1
 order by 2 desc
 limit 5
+```
 
-
-9. **-- find the number of unique customer who purchase item from each category
+9. **-- find the number of unique customer who purchase item from each category:
+```
 select
 	category,
 	count(distinct customer_id) as cst_unique
 from retail_sales
 group by category
+```
 
 
-
-10. **-- create each shift and number and number of orders(morning, Evening, Afternoon)
+10. **-- create each shift and number and number of orders(morning, Evening, Afternoon):
+```
 with hourly_sale
 as
 (
@@ -161,7 +167,7 @@ SELECT
 	COUNT(*) as total_orders
 FROM hourly_sale
 GROUP BY shift
-
+```
 ## Findings
 
 - **Customer Demographics**: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
@@ -200,5 +206,6 @@ For more content on SQL, data analysis, and other data-related topics, make sure
 - **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
 
 Thank you for your support, and I look forward to connecting with you!
+
 
 
