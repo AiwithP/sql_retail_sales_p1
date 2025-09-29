@@ -70,23 +70,24 @@ WHERE
 
 The following SQL queries were developed to answer specific business questions:
 
-1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
+1. **-- SQL query to retrieve all columns for sales made on '2022-11-05**:
 ```sql
 SELECT *
 FROM retail_sales
 WHERE sale_date = '2022-11-05';
 ```
 
-2. **-- retrieve all trasaction where the category is Clothing and the quantity sold is more than 4 in nov 2022
+****2. **-- retrieve all trasaction where the category is Clothing and the quantity sold is more than 4 in nov 2022:
+```
 SELECT * FROM retail_sales
  WHERE category = 'Clothing' 
 and 
 TO_CHAR(sale_date, 'YYYY-MM') = '2022-11'
 and 
 quantity >= 4 
+```
 
-
-3. **--sql quary to calculate the total sales for each category
+4. **--sql quary to calculate the total sales for each category
 SELECT category, 
 SUM(total_sale) as net_sale,
 COUNT(*) as total_order
@@ -95,25 +96,25 @@ GROUP BY 1
 
 
 
-4. **--find the avg age of customer who purchased item from Beauty category
+5. **--find the avg age of customer who purchased item from Beauty category
 select Round(AVG(age),2) as avg_age 
 from retail_sales
 where category = 'Beauty'
 
 
-5. **--find the trasaction where the total_sale is greater than 1000.
+6. **--find the trasaction where the total_sale is greater than 1000.
 select * from retail_sales
 where total_sale >1000;
 
 
 
-6. **-- find the total number of transaction (transaction_id) made by each gender and each category
+7. **-- find the total number of transaction (transaction_id) made by each gender and each category
 select category, gender,
 count(*) as total_trans
 from retail_sales
 group by category, gender
 
-7. **--calculate the avaerage sale for each month Find out best selling month to each year
+8. **--calculate the avaerage sale for each month Find out best selling month to each year
 
 select 
 	EXTRACT(YEAR FROM sale_date) as year,
@@ -199,4 +200,5 @@ For more content on SQL, data analysis, and other data-related topics, make sure
 - **Discord**: [Join our community to learn and grow together](https://discord.gg/36h5f2Z5PK)
 
 Thank you for your support, and I look forward to connecting with you!
+
 
